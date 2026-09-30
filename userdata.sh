@@ -13,12 +13,12 @@ sudo ./aws/install
 
 cd /home/ubuntu/
 TOKEN=$(aws --region=us-east-1 ssm get-parameter --name /halit/capstone/token --with-decryption --query 'Parameter.Value' --output text)
-git clone https://$TOKEN@github.com/HalitCam/AWS-Capstone-Project.git
-cd /home/ubuntu/AWS-Capstone-Project
+git clone https://$TOKEN@github.com/HalitCam/aws-capstone-project.git
+cd /home/ubuntu/aws-capstone-project
 
 apt-get install python3.10-dev default-libmysqlclient-dev -y
 pip3 install -r requirements.txt
-cd /home/ubuntu/AWS-Capstone-Project/src
+cd /home/ubuntu/aws-capstone-project/src
 python3 manage.py collectstatic --noinput
 python3 manage.py makemigrations
 python3 manage.py migrate
